@@ -75,7 +75,48 @@ MOODLE_URL=https://your-moodle-site.com
 MOODLE_TOKEN=your_web_service_token_here
 ```
 
-### 4. Configure Claude Desktop
+### 4. Test the Connection (Recommended)
+
+Before configuring Claude Desktop, test that everything works:
+
+```bash
+# Run the simple connectivity test
+npm test
+```
+
+This will:
+- ✅ Verify your Moodle URL and token are correct
+- ✅ Show your enrolled courses
+- ✅ Display upcoming assignments
+- ✅ List calendar events
+
+**Expected output:**
+```
+🔍 Testing Moodle Connection...
+✅ Connected successfully!
+   Site: Your Moodle Site Name
+   User: Your Name (username)
+
+✅ Found 5 courses:
+   - Course Name 1 (ID: 123)
+   - Course Name 2 (ID: 456)
+   ...
+```
+
+**If you see errors:**
+- Verify your MOODLE_URL includes `https://`
+- Check your token is correct
+- Ensure web services are enabled on your Moodle site
+- Contact your Moodle administrator if needed
+
+**Optional: Test the full MCP protocol**
+```bash
+npm run test:mcp
+```
+
+This tests the JSON-RPC communication between the MCP server and clients.
+
+### 5. Configure Claude Desktop
 
 Add the MCP server to your Claude Desktop configuration:
 
@@ -110,7 +151,7 @@ Add the following configuration:
 
 **Replace** `/absolute/path/to/moodle-connect-mcp` with the actual path to your installation.
 
-### 5. Restart Claude Desktop
+### 6. Restart Claude Desktop
 
 Restart Claude Desktop to load the new MCP server.
 
